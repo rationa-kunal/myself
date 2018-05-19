@@ -8,3 +8,6 @@ class BlogPost(models.Model):
     post = HTMLField()
     img_url = models.URLField(blank=True)
     date = models.DateField(default=datetime.today)
+
+    def __str__(self):
+        return self.title
