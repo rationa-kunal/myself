@@ -1,19 +1,110 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <form class="" method="post">
-      {% csrf_token %}
-      {{form.as_p}}
-      <button type="submit" name="button">submit</button>
-    </form>
+<head>
+
+	<title>{% block title %}{% endblock title %}</title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Playfair+Display|Sacramento" rel="stylesheet">
+  {% load static %}
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.2/css/uikit.min.css" />
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+	<link rel="stylesheet" href="{% static 'css/prism.css' %}">
+</head>
+<body>
 
 
-    {% load static %}
-    <script type="text/javascript" src="{% static 'js/tinymce/tinymce.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/tinymce/custom.js' %}"></script>
-  </body>
+	<div class="bg uk-background-cover" style="background-image: url(https://images.wallpapersden.com/image/download/anime-minimalism_58558_1920x1080.jpg);">
+
+	</div>
+
+
+
+	<div class="content">
+
+		<div class="uk-navbar-container  uk-navbar-transparent uk-animation-fade">
+			<nav class="uk-navbar-container  uk-navbar-transparent uk-container uk-container-small" uk-navbar>
+				<div class="uk-navbar-left">
+
+					<ul class="uk-navbar-nav">
+						<li class="uk-active">
+							<a href="#" uk-toggle="target: #offcanvas-nav-primary"><span class="white" uk-icon="icon: table"></span></a>
+						</li>
+					</ul>
+
+				</div>
+				<div class="uk-navbar-right">
+					<ul class="uk-navbar-nav">
+						<li>
+							<a href="{% url 'list_blog_post' %}">
+								<button class="uk-button uk-button-default brand-name">myselfkunal</button>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+
+
+		<div class="uk-offcanvas-content">
+
+			<div id="offcanvas-nav-primary" uk-offcanvas="overlay: true">
+				<div class="uk-offcanvas-bar uk-flex uk-flex-column">
+
+					<ul class="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical">
+						<li class="uk-nav-header">Myselfkunal</li>
+						<li><a href="{% url 'list_blog_post' %}"><span class="uk-margin-small-right" uk-icon="icon: copy"></span> blog</a></li>
+						<li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: hashtag"></span> more coming soon</a></li>
+					</ul>
+
+				</div>
+			</div>
+
+		</div>
+    {% block content %}{% endblock content %}
+	</div>
+
+
+
+
+
+
+	<footer>
+		<div class="uk-navbar-container  uk-navbar-transparent">
+			<nav class="uk-navbar-container uk-navbar-transparent uk-container uk-container-small" uk-navbar>
+				<div class="uk-navbar-center">
+
+					<ul class="uk-navbar-nav">
+						<li class="uk-active">
+							<a href="#">
+								<span class="white" uk-icon="icon: code"></span>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<span class="white">created by kunal</span>
+							</a>
+						</li>
+					</ul>
+
+				</div>
+			</nav>
+		</div>
+
+	</footer>
+
+	<script
+	src="https://code.jquery.com/jquery-3.3.1.min.js"
+	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.2/js/uikit.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.2/js/uikit-icons.min.js"></script>
+	<script type="text/javascript" src="{% static 'js/ext.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/tinymce/tinymce.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/tinymce/custom.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/prism.js' %}">
+
+	</script>
+</body>
 </html>

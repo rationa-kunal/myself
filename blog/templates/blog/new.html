@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}new blogpost{% endblock title %}
+
+{% block content %}
+<div class="uk-container uk-container-small">
+  <div class="uk-tile uk-tile-secondary uk-margin-large-top uk-margin-large-bottom uk-animation-slide-bottom-medium uk-animation-fade body">
+    <form method="post">
+      {% csrf_token %}
+      {{form.as_p}}
+      <button class="button button-default" type="submit" name="button">submit</button>
+    </form>
+  </div>
+</div>
+{% endblock content %}

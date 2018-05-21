@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}myself{% endblock title %}
+
+{% block content %}
+<div class="uk-container uk-container-small uk-text-center uk-margin-large-top">
+			<div class="uk-tile uk-text-meta white-border">
+				<p class="intro uk-text-large">
+					Hi welcom to my blog,
+					<br>
+					First of all let me correct myself this is not a blog... (now you are asking "hmmmn! then what is this"). Let me explain this is more like a guide for dai to day django - python practices (that i forget all the time, thats why this guide).
+					<br>
+					So this is not a professtional blog ... so chill.
+				</p>
+			</div>
+		</div>
+
+		<div class="uk-container uk-container-small uk-margin-large-top uk-margin-f-bottom">
+
+      {% for post in posts %}
+      <a href="{% url 'detail_blog_post' post.id %}">
+        <div class="uk-height-medium uk-background-cover uk-light uk-flex uk-background-blend-luminosity uk-background-secondary option" uk-parallax="bgy: -50" style="background-image: url('{{post.img_url}}');">
+          <div class="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical">
+            <h1 uk-parallax="y: 100,0" class="">
+              <span class="uk-background-secondary tile-title"><i>{{ post.title }}</i></span>
+            </h1>
+          </div>
+        </div>
+      </a>
+      {% endfor %}
+
+		</div>
+
+		<div class="pagination uk-container uk-container-small uk-margin-top uk-margin-large-bottom">
+			<ul class="uk-pagination">
+				{% if posts.has_previous %}
+				    <li><a class="white" href="?page={{ posts.previous_page_number }}"><span class="uk-margin-small-right white" uk-pagination-previous></span> Previous</a></li>
+				{% endif %}
+				{% if posts.has_next %}
+				<li class="uk-margin-auto-left"><a class="white" href="?page={{ posts.next_page_number }}">Next <span class="uk-margin-small-left white" uk-pagination-next></span></a></li>
+				{% endif %}
+			</ul>
+		</div>
+
+	</div>
+
+{% endblock content %}

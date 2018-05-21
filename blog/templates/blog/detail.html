@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}{% endblock title %}
+
+{% block content %}
+<div class="uk-height-medium uk-background-cover uk-light uk-background-blend-soft-light uk-background-secondary uk-animation-fade" style="background-image: url('{{ post.img_url }}');">
+			<div class="uk-container uk-container-small get-up">
+				<div class="uk-height-medium uk-background-cover uk-light uk-flex uk-background-secondary" style="background-image: url('{{ post.img_url }}');">
+				</div>
+			</div>
+		</div>
+
+
+		<div class="uk-container uk-container-small">
+			<div class="uk-tile uk-tile-secondary uk-margin-large-top uk-margin-large-bottom uk-animation-slide-bottom-medium uk-animation-fade body">
+			<article class="uk-article">
+
+				<h1 class="uk-article-title"><a class="uk-link-reset article-title" href="#">{{ post.title }}</a></h1>
+
+				{# <p class="uk-article-meta">Written by <a href="#">Super User</a> on 12 April 2012. Posted in <a href="#">Blog</a></p> #}
+
+				<span class="uk-text-lead">{{ post.intro | safe }}</span>
+
+        {{ post.post | safe }}
+
+				<div class="uk-grid-small uk-child-width-auto" uk-grid>
+					<div>
+						<a class="uk-button uk-button-text" href="{% url 'list_blog_post' %}">Read more</a>
+					</div>
+				</div>
+
+			</article>
+
+		</div>
+		</div>
+{% endblock content %}
